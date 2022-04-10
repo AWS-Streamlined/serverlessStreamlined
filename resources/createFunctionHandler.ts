@@ -1,8 +1,9 @@
-import { ServerlessParameter, AuthorizerConfig } from "./utilities";
+import { AwsCfInstruction } from "@serverless/typescript";
+import { AuthorizerConfig } from "./utilities";
 
 export type AdditionalPolicyStatement = {
   Action: string[];
-  Resource: Array<ServerlessParameter>;
+  Resource: AwsCfInstruction[];
   Effect: "Allow" | "Deny";
 };
 
@@ -12,7 +13,7 @@ export const createFunctionHandler = (
   method: string,
   authorizer?: AuthorizerConfig,
   policyStatements: AdditionalPolicyStatement[] = [],
-  environmentVariables: { [key: string]: ServerlessParameter } | undefined = undefined,
+  environmentVariables: { [key: string]: AwsCfInstruction } | undefined = undefined,
   timeout = 5,
   memorySize = 256,
 ) => {

@@ -1,7 +1,7 @@
 import { createFunctionHandler } from "@resources/createFunctionHandler";
-import { ServerlessParameter } from "./utilities";
+import { AwsCfInstruction } from "@serverless/typescript";
 
-export const postMessage = (mainTableArn: ServerlessParameter, mainTableName: ServerlessParameter) =>
+export const postMessage = (mainTableArn: AwsCfInstruction, mainTableName: AwsCfInstruction) =>
   createFunctionHandler(
     "postMessage",
     "/messages",
