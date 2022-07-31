@@ -11,11 +11,3 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 # [Optional] Uncomment if you want to install an additional version of node using nvm
 # ARG EXTRA_NODE_VERSION=10
 # RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
-
-# Install Expo
-RUN su node -c "npm install -g expo-cli"
-
-# Install Pulumi
-RUN cd /opt; wget https://get.pulumi.com/releases/sdk/pulumi-v3.26.1-linux-x64.tar.gz && \
-  tar xvzf pulumi-*.tar.gz && rm pulumi-*.tar.gz
-ENV PATH="/opt/pulumi:${PATH}"
